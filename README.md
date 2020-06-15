@@ -10,6 +10,7 @@ I used some security recommendations from owasp.org in the design of this templa
 
 ## Tooling
 
+* clojure cli
 * pedestal for the backend service
 * java-time for handling time and dates
 * postal for sending emails
