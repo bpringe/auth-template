@@ -6,7 +6,7 @@ The database layer uses postgresql, but this can be switched out if desired.
 
 Feel free to copy and use this template however you want.
 
-I used some security recommendations from owasp.org in the design of this template app, but I do not claim to be a security expert by any means, and things will likely need to be customized per app. See [references](#references) section for more information.
+I used some security recommendations from owasp.org in the design of this template app, but I do not claim to be a security expert by any means, and things will likely need to be customized per app. See the [references](#references) section for more information.
 
 ## Tooling
 
