@@ -38,7 +38,7 @@ Create a `dev-config.edn` file and fill out the required config values. See the 
 
 ### Server
 
-Start a REPL, load the `auth-template.server` namespace, and evaluate `(run-dev)`. This will start a development server with development interceptors for showing errors, etc.
+Start a REPL, load the `auth-template.server` namespace, and evaluate `(run-dev)`. This will start a development server with development interceptors for showing errors, etc. You'll need to have the proper config values set in the `dev-config.edn`, including database connection details. You'll also need the correct [schema](#data-model) set up in the database.
 
 ### UI
 
