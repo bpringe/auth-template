@@ -6,6 +6,8 @@ The database layer uses postgresql, but this can be switched out if desired.
 
 Feel free to copy and use this template however you want.
 
+I used some security recommendations from owasp.org in the design of this template app, but I do not claim to be a security expert by any means, and things will likely need to be customized per app. See [references](#references) section for more information.
+
 ## Tooling
 
 * pedestal for the backend service
@@ -46,3 +48,10 @@ Start the development server as noted above, then in a new terminal, run `shadow
 Run the `deploy.sh` script (needs to be customized), which automatically builds, tags, and pushes the docker image to the online registry, logs into the remote production server, pulls the latest version of the image, then runs it.
 
 You'll need to have ssh keys set up for logging into the remote server.
+
+## References
+
+* https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html
+* https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html
+* https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html
+* https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html
