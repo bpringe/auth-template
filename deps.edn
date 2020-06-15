@@ -1,0 +1,15 @@
+{:deps {io.pedestal/pedestal.service {:mvn/version "0.5.7"}
+        io.pedestal/pedestal.route {:mvn/version "0.5.7"}
+        io.pedestal/pedestal.jetty {:mvn/version "0.5.7"}
+        org.slf4j/slf4j-simple {:mvn/version "1.7.30"}
+        clojure.java-time {:mvn/version "0.3.2"}
+        com.draines/postal {:mvn/version "2.0.3"}
+        yogthos/config {:mvn/version "1.1.7"}
+        seancorfield/next.jdbc {:mvn/version "1.0.462"}
+        org.postgresql/postgresql {:mvn/version "42.2.10"}
+        hiccup {:mvn/version "1.0.5"}
+        buddy/buddy-hashers {:mvn/version "1.4.0"}
+        com.zaxxer/HikariCP {:mvn/version "3.4.5"}}
+ :paths ["src" "resources"]
+ :aliases {:dev {:jvm-opts ["-Dconfig=dev-config.edn"]}
+           :prod {:jvm-opts ["-Dconfig=/config/config.edn"]}}}

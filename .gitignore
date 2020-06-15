@@ -1,0 +1,17 @@
+pom.xml
+pom.xml.asc
+*.jar
+*.class
+/lib/
+/classes/
+/target/
+/checkouts/
+.nrepl-port
+.nrepl-history
+.cpcache/
+.clj-kondo/.cache/
+.shadow-cljs/
+resources/public/js
+node_modules
+dev-config.edn
+profiles.clj

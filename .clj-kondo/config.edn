@@ -1,0 +1,3 @@
+{:linters
+ {:unresolved-symbol
+  {:exclude [(io.pedestal.interceptor.error/error-dispatch [ctx ex])]}}}
