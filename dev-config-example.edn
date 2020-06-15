@@ -1,0 +1,13 @@
+{:service-port 8080
+ :root-app-url "http://localhost:8080" ;; Set this to your domain in prod
+ :email-user "" ;; An email address for communications like for password reset links
+ :email-password ""
+ :db-host ""
+ :db-name ""
+ :db-user ""
+ :db-password ""
+ :alert-email "" ;; Email address to that is currently only used for sending dummy emails when an email not in the database is submitted for a password reset link, but can be used for anything else
+ :session-cookie-name "id"
+ :session-valid-minutes 1440
+ :email-verification-token-valid-minutes 2880
+ :password-reset-token-valid-minutes 30}

@@ -1,4 +1,4 @@
-(ns simplefi.service
+(ns auth-template.service
   (:require [io.pedestal.http :as http]
             [io.pedestal.http.body-params :refer [body-params]]
             [io.pedestal.http.secure-headers :as sec-headers]
@@ -6,19 +6,19 @@
             [clojure.string :as str]
             [ring.util.response :as ring-response]
             [io.pedestal.interceptor.chain :as int-chain]
-            [simplefi.config :as config]
+            [auth-template.config :as config]
             [hiccup.page :as page]
             [hiccup.form :as form]
             [clojure.spec.alpha :as s]
             [buddy.hashers :as hashers]
-            [simplefi.db :as db]
+            [auth-template.db :as db]
             [java-time :as jt]
-            [simplefi.email :refer [send-email-verification-email!
+            [auth-template.email :refer [send-email-verification-email!
                                     send-account-exists-email!
                                     send-password-reset-email!
                                     send-dummy-password-reset-email!]]
-            [simplefi.util :as util]
-            [simplefi.db-session-store :refer [->DbSessionStore]]))
+            [auth-template.util :as util]
+            [auth-template.db-session-store :refer [->DbSessionStore]]))
 
 ;;;; Helpers
 
@@ -79,7 +79,7 @@
    [:head
     [:meta {:charset "utf-8"}]
     [:title title]
-    [:meta {:name "description" :content "A simple app for personal finance"}]]
+    [:meta {:name "description" :content "Your description here"}]]
    (apply conj [:body] content)))
 
 (defn signup-page
@@ -186,16 +186,16 @@
 (defn landing-page
   []
   (create-page
-   "SimpleFi"
+   "auth-template"
    [:a {:href "/login"} "Log in"] "&nbsp;"
    [:a {:href "/signup"} "Sign up"]
-   [:h1 "SimpleFi"]
-   [:p "The personal finance app that's so simple, it doesn't even use CSS."]))
+   [:h1 "auth-template"]
+   [:p "App description and other content go here."]))
 
 (defn app-page
   []
   (create-page
-   "SimpleFi"
+   "auth-template"
    [:a {:href "/logout"} "Log out"]
    [:br] [:br]
    [:iframe {:width 560 :height 315
@@ -410,33 +410,8 @@
               {:content-security-policy-settings
                ;; This removes the default 'strict-dynamic' that pedestal adds to the CSP header script-src,
                ;; which requires a nonce or hash in the script tag.
-               ;; May want to add this back later for added security?
+               ;; You probably should modify this to how you see fit for your app, or use a nonce/hash.
+               ;; See https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
                (sec-headers/content-security-policy-header
                 {:object-src "'none'"
                  :script-src "'unsafe-inline' 'unsafe-eval' https: http:"})}})
-
-(comment
-  (def field "hello")
-  {field "world"}
-  (ring-response/redirect "/")
-  (validate-email "hello@gmail.com")
-  (-> (repeat 65 "x")
-      (clojure.string/join))
-  (signup-page {:email-error "Invalid email"
-                :password-error "Invalid password"
-                :af-token "some-token"})
-
-  (hashers/derive "password" {:alg :bcrypt+sha512
-                              :salt "1111111111111111"})
-  (hashers/check "password" "bcrypt+sha512$b145824bba02107a0c62de486b6080c0$12$4b8f5a5ad52dd0f560e25baeb15e163b4d24fcc85428d314")
-  (ok-html (email-verification-sent-page "hello"))
-  (ok-html (email-verified-page))
-  (def verification {:verified false})
-  (if (:verified verification)
-    "verified"
-    "not verified")
-  (def email-verification (db/get-email-verification-for-user 11 "brandon.ringe@gmail.com"))
-  (jt/before? (jt/local-date-time) (-> email-verification :email_verifications/expires_at (jt/local-date-time)))
-  (login-page {:anti-forgery-token "some-token"})
-  
-  (apply conj [:body] [[:a] [:br]]))

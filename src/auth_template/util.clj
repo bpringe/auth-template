@@ -1,4 +1,4 @@
-(ns simplefi.util)
+(ns auth-template.util)
 
 (defn generate-uuid
   []

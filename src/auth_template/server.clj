@@ -1,8 +1,8 @@
-(ns simplefi.server
+(ns auth-template.server
   (:gen-class)
   (:require [io.pedestal.http :as http]
             [io.pedestal.http.route :as route]
-            [simplefi.service :as service]))
+            [auth-template.service :as service]))
 
 (defonce runnable-service (http/create-server service/service))
 
@@ -41,8 +41,4 @@
 (comment
   (start-dev)
   (stop-dev)
-  (restart-dev)
-  
-  (require '[config.core :refer [env]])
-  
-  (env :server-port))
+  (restart-dev))

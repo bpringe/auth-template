@@ -1,4 +1,4 @@
-(ns simplefi.config
+(ns auth-template.config
   (:require [config.core :refer [env]]))
 
 (defn- get-config-value

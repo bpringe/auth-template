@@ -35,4 +35,4 @@ apt-get -qy autoremove
 
 EXPOSE 8080
 
-CMD ["clojure", "-A:prod", "-m", "simplefi.server"]
+CMD ["clojure", "-A:prod", "-m", "auth-template.server"]

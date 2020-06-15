@@ -1,8 +1,7 @@
-(ns simplefi.db
+(ns auth-template.db
   (:require [next.jdbc :as jdbc]
             [next.jdbc.connection :as connection]
-            [java-time :as jt]
-            [simplefi.config :as config]
+            [auth-template.config :as config]
             [clojure.string :as str])
   (:import (com.zaxxer.hikari HikariDataSource)))
 
@@ -101,30 +100,3 @@ where user_id = ?" user-id]))
 update users
 set password_hash = ?
 where id = ?" password-hash user-id]))
-
-(comment
-  (insert-user! "test1@gmail.com" "password")
-
-  (insert-email-verification! 2 "brandon.ringe@gmail.com" "some-token3" (jt/plus (jt/local-date-time) (jt/days 1)))
-
-  (get-email-verification-by-token "placeholder-token")
-
-  (set-email-verification-to-verified! 7)
-  (get-user-by-email "brandon.ringe@gmail.com")
-  (get-email-verification-for-user 16 "brandon.ringe@gmail.com")
-  (def email-verification (get-email-verification-for-user 11 "brandon.ringe@gmail.com"))
-  (jt/before? (jt/local-date-time) (:email_verifications/expires_at email-verification))
-  (insert-session! {:user-id 12
-                    :session-key "some-key5"
-                    :user-agent "Mozilla"
-                    :ip-address "127.0.0.1"
-                    :expires-at (jt/plus (jt/local-date-time) (jt/days 1))
-                    :anti-forgery-token "some-token"})
-  (-> (get-session-data "f682849a-f894-4b12-9180-c94f368d1362")
-      :sessions/ip
-      str)
-  (expire-session! "some-key5")
-  (insert-password-reset-token! {:user-id 14
-                                 :reset-token (simplefi.util/generate-uuid)
-                                 :expires-at (jt/plus (jt/local-date-time) (jt/days 1))})
-  (set-password-reset-token-to-used! 3))

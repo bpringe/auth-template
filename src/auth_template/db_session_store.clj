@@ -1,7 +1,7 @@
-(ns simplefi.db-session-store
+(ns auth-template.db-session-store
   (:require [ring.middleware.session.store :refer [SessionStore]]
-            [simplefi.db :as db]
-            [simplefi.util :as util]
+            [auth-template.db :as db]
+            [auth-template.util :as util]
             [java-time :as jt]
             [io.pedestal.http.csrf :refer [anti-forgery-token-str]]))
 
@@ -9,7 +9,6 @@
   SessionStore
   (read-session
    [_ key]
-   (prn "read-session called with key:" key)
    (when-let [{user-agent :sessions/user_agent
                ip-address :ip_address
                user-id :sessions/user_id
@@ -23,7 +22,6 @@
                                  :email email}))))
   (write-session
    [_ key {:keys [user-id user-agent ip-address expires-at] :as data}]
-   (prn "write-session called with key:" key)
    (let [session-key (or key (util/generate-uuid))]
      ;; Sessions data is immutable, besides deleting/expiring the session.
      (when-not key
@@ -37,23 +35,5 @@
      session-key))
   (delete-session
    [_ key]
-   (prn "delete-session called")
    (db/expire-session! key)
    nil))
-
-(comment
-  (.read-session (->DbSessionStore) "f682849a-f894-4b12-9180-c94f368d1362")
-  (.write-session (->DbSessionStore)
-                  nil
-                  {:user-id 12
-                   :user-agent "Mozilla"
-                   :ip-address "127.0.0.1"
-                   :expires-at (jt/plus (jt/local-date-time) (jt/days 1))
-                   "__anti-forgery-token" "something"})
-  (.delete-session (->DbSessionStore) "4d0306fb-6c25-4334-ba22-03da64fbb50f")
-  (get-in {"hello" "world"} ["hello"])
-  (.write-session (->DbSessionStore)
-                  nil
-                  {:user-agent "Mozilla"
-                   :ip-address "127.0.0.1"
-                   :expires-at (jt/plus (jt/local-date-time) (jt/days 1))}))

@@ -1,4 +1,4 @@
-(ns simplefi.app)
+(ns auth-template.app)
 
 (defn main!
   []
