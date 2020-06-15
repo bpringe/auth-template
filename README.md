@@ -60,6 +60,8 @@ Run the `deploy.sh` script (needs to be customized), which automatically builds,
 
 You'll need to have ssh keys set up for logging into the remote server.
 
+You'll also need a config file similar to the `dev-config.edn` file located on your remote server, at the path designated by `PROD_CONFIG_DIRECTORY` in `deploy.sh`.
+
 ## References
 
 * https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html
