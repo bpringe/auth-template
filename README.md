@@ -8,6 +8,16 @@ Feel free to copy and use this template however you want.
 
 I used some security recommendations from owasp.org in the design of this template app, but I do not claim to be a security expert by any means, and things will likely need to be customized per app. See the [references](#references) section for more information.
 
+The main structure of the app is that all non-authenticated auth pages are standard html pages. When the user is logged in, and html page is loaded that will host a single-page application. This SPA aspect can be done away with easily if desired.
+
+## Features
+
+* user sign up with email address
+* email verification via link with token emailed to user
+* user login
+* user logout
+* forgot password / password reset
+
 ## Tooling
 
 * clojure cli
@@ -38,7 +48,7 @@ Create a `dev-config.edn` file and fill out the required config values. See the 
 
 ### Server
 
-Start a REPL, load the `auth-template.server` namespace, and evaluate `(run-dev)`. This will start a development server with development interceptors for showing errors, etc. You'll need to have the proper config values set in the `dev-config.edn`, including database connection details. You'll also need the correct [schema](#data-model) set up in the database.
+Start a REPL, load the `auth-template.server` namespace, and evaluate `(start-dev)`. This will start a development server with development interceptors for showing errors, etc. You'll need to have the proper config values set in the `dev-config.edn`, including database connection details. You'll also need the correct [schema](#data-model) set up in the database.
 
 ### UI
 
