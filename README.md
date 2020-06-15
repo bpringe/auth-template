@@ -44,3 +44,5 @@ Start the development server as noted above, then in a new terminal, run `shadow
 ## Deployment
 
 Run the `deploy.sh` script (needs to be customized), which automatically builds, tags, and pushes the docker image to the online registry, logs into the remote production server, pulls the latest version of the image, then runs it.
+
+You'll need to have ssh keys set up for logging into the remote server.
