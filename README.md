@@ -1,6 +1,6 @@
 # Auth Template
 
-This is a template for a project that uses session-based authentication. It's by no means perfect but can provide a good starting point for a web app with authentication and a pedestal backend. I figure this repo can serve as a reference for myself later, and maybe others will find it useful too.
+This is a template for a project that uses session-based authentication. It can provide a good starting point for a web app with authentication and a pedestal backend. I figure this repo can serve as a reference for myself later, and maybe others will find it useful too.
 
 The database layer uses postgresql, but this can be switched out if desired.
 
