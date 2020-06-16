@@ -38,6 +38,8 @@ The main structure of the app is that all non-authenticated auth pages are stand
 
 ## Data Model
 
+See the `database-ddl.sql` file for the SQL to create this model in PostgreSQL.
+
 ![ER diagram](er-diagram.png)
 
 ## Development
