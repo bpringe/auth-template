@@ -1,10 +1,10 @@
 # Auth Template
 
-This is a template for a project that uses session-based authentication. It's by no means perfect but can provide a good starting point for a web app with authentication and a pedestal backend. I figure this repo can serve as a reference for myself later, and maybe others will find it useful too.
+This is a template for a project that uses session-based authentication. It can provide a good starting point for a web app with authentication and a pedestal backend. I figure this repo can serve as a reference for myself later, and maybe others will find it useful too.
 
 The database layer uses postgresql, but this can be switched out if desired.
 
-Feel free to copy and use this template however you want.
+Feel free to copy and use this template however you want. You'll probably want to replace `auth-template` throughout the project with your project name.
 
 I used some security recommendations from owasp.org in the design of this template app, but I do not claim to be a security expert by any means, and things will likely need to be customized per app. See the [references](#references) section for more information.
 
@@ -37,6 +37,8 @@ The main structure of the app is that all non-authenticated auth pages are stand
 ![auth flow](auth-flow.png)
 
 ## Data Model
+
+See the `database-ddl.sql` file for the SQL to create this model in PostgreSQL.
 
 ![ER diagram](er-diagram.png)
 
