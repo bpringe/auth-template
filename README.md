@@ -38,6 +38,8 @@ The main structure of the app is that all non-authenticated auth pages are stand
 
 ## Data Model
 
+> “Show me your flowcharts and conceal your tables, and I shall continue to be mystified. Show me your tables, and I won’t usually need your flowcharts; they’ll be obvious” – Fred Brooks, author Mythical Man-Month
+
 See the `database-ddl.sql` file for the SQL to create this model in PostgreSQL.
 
 ![ER diagram](er-diagram.png)
