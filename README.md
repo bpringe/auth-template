@@ -1,4 +1,4 @@
-# Auth Template
+# Auth Template <!-- omit in toc -->
 
 This is a template for a project that uses session-based authentication. It can provide a good starting point for a web app with authentication and a pedestal backend. I figure this repo can serve as a reference for myself later, and maybe others will find it useful too.
 
@@ -10,27 +10,41 @@ I used some security recommendations from owasp.org in the design of this templa
 
 The main structure of the app is that all non-authenticated auth pages are standard html pages. When the user is logged in, and html page is loaded that will host a single-page application. This SPA aspect can be done away with easily if desired.
 
+## Table of Contents <!-- omit in toc -->
+
+- [Features](#features)
+- [Tooling](#tooling)
+- [Auth Flow](#auth-flow)
+- [Data Model](#data-model)
+- [Development](#development)
+  - [Configuration](#configuration)
+  - [Server](#server)
+  - [UI](#ui)
+- [Deployment](#deployment)
+- [References](#references)
+- [Donate](#donate)
+
 ## Features
 
-* user sign up with email address
-* email verification via link with token emailed to user
-* user login
-* user logout
-* forgot password / password reset
+- user sign up with email address
+- email verification via link with token emailed to user
+- user login
+- user logout
+- forgot password / password reset
 
 ## Tooling
 
-* clojure cli
-* pedestal for the backend service
-* java-time for handling time and dates
-* postal for sending emails
-* yogthos/config for configuration
-* next.jdbc for database interaction
-* hiccup for rendering html
-* buddy-hashers for hashing passwords and checking raw passwords against stored hashes
-* hikaricp for database connection pooling
-* docker for packaging and deployment
-* shadow-cljs for clojurescript compilation
+- clojure cli
+- pedestal for the backend service
+- java-time for handling time and dates
+- postal for sending emails
+- yogthos/config for configuration
+- next.jdbc for database interaction
+- hiccup for rendering html
+- buddy-hashers for hashing passwords and checking raw passwords against stored hashes
+- hikaricp for database connection pooling
+- docker for packaging and deployment
+- shadow-cljs for clojurescript compilation
 
 ## Auth Flow
 
@@ -68,7 +82,11 @@ You'll also need a config file similar to the `dev-config.edn` file located on y
 
 ## References
 
-* https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html
-* https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html
-* https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html
-* https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html
+- [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)
+- [OWASP Forgot Password Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html)
+- [OWASP Authentication Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html)
+- [OWASP Cross-Site Request Forgery Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html)
+
+## Donate
+
+If you find this project useful and would like to donate, you can do so via [GitHub Sponsors](https://github.com/sponsors/bpringe) or [PayPal](https://paypal.me/BrandonRinge).

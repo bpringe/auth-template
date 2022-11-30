@@ -15,3 +15,4 @@ resources/public/js
 node_modules
 dev-config.edn
 profiles.clj
+.lsp/.cache
